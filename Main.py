@@ -5,6 +5,7 @@ import re
 import cookielib, urllib2
 from cookielib import CookieJar
 import datetime
+import nltk
  
  
 cj = CookieJar()
@@ -29,18 +30,18 @@ def main():
                 if link == 'www.huffingtonpost.com':
                     pass
                 else:
-                    print 'let\'s visit:', link
+                    print 'let\'s visit:',link
                     print ' _____________________________________'
                     linkSource = opener.open(link).read()
                     #content = re.findall(r'<p>(.*?)</p>',linkSource)
                     #content = re.findall(r'<p>((.|\n)*)<p>___</p>',linkSource)
-                    content = re.findall(r'<p>(.*?)</p>',linkSource)
+                    content = re.findall(r'<p>((.|\n)*)<p>___</p>',linkSource)
                     linesOfInterest = re.findall(r'<p>(.*?)</p>',str(content))
-                    print 'Content:'
-                    for theContent in content:
-                        print theContent
+                    
+                    for eachLine in linesOfInterest:
+                        print eachLine
  
-                    time.sleep(3)
+                    #time.sleep(55)
                     
                 
                     
